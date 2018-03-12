@@ -5,10 +5,10 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { quote : 'This is a random quote just to get you started' };
+    this.state = { quote: 'This is a random quote just to get you started' };
     this.randomQuote = this.randomQuote.bind(this);
   }
-    randomQuote() {
+  randomQuote() {
     const quotes = [
       'This is a new quote, displayed by the quote randomiser 1.',
       'This is a new quote, displayed by the quote randomiser 2.',
@@ -17,24 +17,35 @@ class App extends Component {
       'This is a new quote, displayed by the quote randomiser 5.'
     ];
     var randNum = Math.floor(Math.random() * (quotes.length)) + 0;
-    this.setState({ quote: quotes[randNum]});
+    this.setState({ quote: quotes[randNum] });
   };
   render() {
-
+      let returnQuote  = this.state.quote;
     return (
+      
       <div>
         <div className="card">
-        <div className="card-block">
-        <h4 className="card-title">Quote Randomiser</h4>
-        <p className="card-text">{this.state.quote}</p>
-        <h6 className="card-subtitle mb-2 text-muted">- Author</h6>
-      <button onClick={this.randomQuote}  className="btn btn-primary">New Quote</button>
-  </div>
-</div>
-</div>
+          <div className="card-block">
+            <h4 className="card-title">Quote Randomiser</h4>
+            <p className="card-text">{this.state.quote}</p>
+            <h6 className="card-subtitle mb-2 text-muted">- Author</h6>
+            <div className="row">
+              <div className="action col-sm">
+                <button onClick={this.randomQuote} className="btn btn-primary" >New Quote</button>
+              </div>
+              <div className="col-sm">
+                <div className="tweet">
+                <a class="button"  title="Tweet this quote!" target="_blank" href={"https://twitter.com/intent/tweet?text=" + returnQuote}>
+                <i className="fab fa-twitter-square"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      
-      
+
+
     );
   }
 }

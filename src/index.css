@@ -21,3 +21,14 @@ body {
 .card-link{
   margin: right;
 }
+
+.tweet{
+  font-size: 3em;
+  color: #00aced;
+  text-align: right;
+
+}
+
+.action{
+  padding: 18px;
+}

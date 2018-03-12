@@ -1,12 +1,13 @@
 body {
-  font-family: sans-serif;
-  background-color: #55ACEE;
+  font-family: montserrat;
+  background-color: #55ACEE; 
+  transition: background-color 1s linear;
 }
 
 .card {
   width: 50%;
   margin: auto;
-  margin-top: 50px; 
+  margin-top: 75px; 
 }
 
 .card-text {
@@ -26,6 +27,7 @@ body {
   font-size: 3em;
   color: #00aced;
   text-align: right;
+  font-family: montserrat;  
 
 }
 

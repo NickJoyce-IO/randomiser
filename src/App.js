@@ -12,30 +12,42 @@ class App extends Component {
     this.randomQuote = this.randomQuote.bind(this);
   }
   
-  randomQuote() {
+  async randomQuote() {
 
-    fetch("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous", {
+  const result =   await fetch("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous", {
       headers: { 'X-Mashape-Key': '95xnlXQbHHmshx9yQ6nMBY5Z0XI8p1tmlDIjsn1Mk9E8yRwZCM'},
   })
-  .then(res => res.json())
-  .then(
-    (result) => {
-      this.setState({
-        isLoaded: true,
-        items: result
-      });
-    },
-    // Note: it's important to handle errors here
-    // instead of a catch() block so that we don't swallow
-    // exceptions from actual bugs in components.
-    (error) => {
-      this.setState({
-        isLoaded: true,
-        error
-      });
-    }
-  );
+  
+
+  const json = await result.json()
+  console.log(json)
+
+  this.setState({data: json})
+  console.log(this.state.data)
+  console.log(this.state.data[0])
+  //.then(res => res.json())
+//   .then(
+//     (result) => {
+//       this.setState({
+//         isLoaded: true,
+//         items: result
+//  });
+
+//     },
+//     // Note: it's important to handle errors here
+//     // instead of a catch() block so that we don't swallow
+//     // exceptions from actual bugs in components.
+//     (error) => {
+//       this.setState({
+//         isLoaded: true,
+//         error
+//       });
+//     }
+//   );
     
+this.author = this.state.data[0].author
+this.quote = this.state.data[0].quote
+
     const colors = [
       '#39CCCC',
       '#85144b',
@@ -48,24 +60,23 @@ class App extends Component {
       '#FF851B'
     ];
     
-    var randNum2 = Math.floor(Math.random() * (colors.length)) + 0;
+    let randNum2 = Math.floor(Math.random() * (colors.length)) + 0;
     document.body.style.backgroundColor = colors[randNum2];
   
   };
 
-componentDidMount() {
-  this.randomQuote();
+
+
+
+  async componentDidMount() {
+   await this.randomQuote();
+
+
 }
 
   render() {
       
 
-       let returnQuote  = this.state.items.quote;
-       let returnAuthor = this.state.items.author;
-
-       
-      
-      
     return (
       
       <div>
@@ -73,16 +84,16 @@ componentDidMount() {
           <div className="card-block">
             <h3 className="card-title">Quote Generator</h3>
             <br />      
-            <p className="card-text">{this.state.items.quote}</p>
+            <p className="card-text">{this.author}</p>
             <div></div>
-            <h6 className="card-subtitle mb-2 text-muted">-{this.state.items.author}</h6>  
+            <h6 className="card-subtitle mb-2 text-muted">-{this.quote}</h6>  
             <div className="row">
               <div className="action col-sm">
                 <button onClick={this.randomQuote} className="btn btn-primary" >New Quote</button>
               </div>
               <div className="col-sm">
                 <div className="tweet">
-                <a className="button"  title="Tweet this quote!" target="_blank" href={"https://twitter.com/intent/tweet?hashtags=quotes,famous&text=" + returnQuote + ' -' + returnAuthor}>
+                <a className="button"  title="Tweet this quote!" target="_blank" href={"https://twitter.com/intent/tweet?hashtags=quotes,famous&text=" + this.quote+ ' -' + this.author}>
                 <i className="fab fa-twitter-square"></i></a>
                 </div>
               </div>

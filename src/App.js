@@ -84,9 +84,9 @@ this.quote = this.state.data[0].quote
           <div className="card-block">
             <h3 className="card-title">Quote Generator</h3>
             <br />      
-            <p className="card-text">{this.author}</p>
+            <p className="card-text">{this.quote}</p>
             <div></div>
-            <h6 className="card-subtitle mb-2 text-muted">-{this.quote}</h6>  
+            <h6 className="card-subtitle mb-2 text-muted">-{this.author}</h6>  
             <div className="row">
               <div className="action col-sm">
                 <button onClick={this.randomQuote} className="btn btn-primary" >New Quote</button>

@@ -2,15 +2,15 @@
   "name": "randomiser",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "1.1.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"No tests specified\""
+  },
+  "dependencies": {
+    "next": "^15.3.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

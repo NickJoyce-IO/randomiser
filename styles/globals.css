@@ -1,13 +1,13 @@
 body {
   font-family: montserrat;
-  background-color: #55ACEE; 
+  background-color: #55ACEE;
   transition: background-color 1s linear;
 }
 
 .card {
   width: 50%;
   margin: auto;
-  margin-top: 75px; 
+  margin-top: 75px;
 }
 
 .card-text {
@@ -19,18 +19,13 @@ body {
   text-align: right;
 }
 
-.card-link{
-  margin: right;
-}
-
-.tweet{
+.tweet {
   font-size: 3em;
   color: #00aced;
   text-align: right;
-  font-family: montserrat;  
-
+  font-family: montserrat;
 }
 
-.action{
+.action {
   padding: 18px;
 }
